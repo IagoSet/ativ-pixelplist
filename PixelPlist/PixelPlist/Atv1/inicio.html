@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bem-vindo</title>
+    <link rel="stylesheet" href="src/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="tela-inicio">
+        <img src="src/imagens/imagem_2025-04-03_153651069 (1).png" alt="Logo PixelPlist" id="logo-inicio">
+        <h1 class="titulo-centralizado">PixelPlist</h1>
+        <p>Pressione a tecla <strong>ESPAÇO</strong> para continuar</p>
+    </div>
+
+    <script>
+        document.addEventListener("keydown", function (event) {
+            if (event.code === "Space") { // Apenas a tecla espaço
+                window.location.href = "cadastro.html"; 
+            }
+        });
+    </script>
+</body>
+</html>
