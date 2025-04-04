@@ -19,7 +19,7 @@ Para rodar o projeto localmente, siga os passos abaixo:
    ```
 2. **Acesse o diretório do projeto**
    ```sh
-   cd ativ-pixelplist/PixelPlist
+   cd PixelPlist\ativ-pixelplist\PixelPlist\PixelPlist\Atv1
    ```
 3. **Instale as dependências**
    ```sh
