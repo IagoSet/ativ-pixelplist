@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+    <link rel="stylesheet" href="src/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="cadastro.html">Cadastro</a></li>
+            <li><a href="login.html">Login</a></li>
+        </ul>
+    </nav>
+
+    <h2>Cadastro de Usuário</h2>
+    <form id="form-cadastro">
+        <label for="email">Email:</label>
+        <input type="email" id="email" required>
+
+        <label for="senha">Senha:</label>
+        <div class="senha-container">
+            <input type="password" id="senha" required>
+            <button type="button" id="toggle-senha" class="toggle-senha">👁‍🗨</button>
+        </div>
+
+
+        <button type="submit">Cadastrar</button>
+    </form>
+
+    <script src="./src/script.js"></script>
+</body>
+</html>
