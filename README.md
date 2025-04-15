@@ -51,7 +51,7 @@ Para o desenvolvimento do projeto, foram utilizadas as seguintes tecnologias:
 
 - **Node.js** – Plataforma para execução de código JavaScript no backend.
 - **React / Next.js** – Biblioteca e framework para desenvolvimento de interfaces web dinâmicas.
-- **TailwindCSS** – Framework para estilização de componentes de forma eficiente e responsiva.
+- **CSS** – Framework para estilização de componentes de forma eficiente e responsiva.
 
 ## Conclusão
 
