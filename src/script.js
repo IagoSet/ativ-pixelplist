@@ -3,10 +3,17 @@ document.addEventListener("DOMContentLoaded", () => {
     const formLogin = document.getElementById("form-login");
     const formItens = document.getElementById("form-itens");
     const listaItens = document.getElementById("lista-itens");
+    const contadorItens = document.getElementById("contador-itens");
     const logoutButton = document.getElementById("logout");
 
     let usuarioAtual = localStorage.getItem("usuario_logado");
     let itens = usuarioAtual ? JSON.parse(localStorage.getItem(`itens_${usuarioAtual}`)) || [] : [];
+    let indiceEditando = null; // Para saber se estamos editando ou adicionando novo
+
+
+    function atualizarContador() {
+        contadorItens.textContent = `Total de itens: ${itens.length}`;
+    }
 
     // Adiciona o título "PixelPlist" em todas as páginas
     const titulo = document.createElement("div");
@@ -107,9 +114,17 @@ document.addEventListener("DOMContentLoaded", () => {
             }
             
             const item = { nome, descricao };
-            itens.push(item);
-            localStorage.setItem(`itens_${usuarioAtual}`, JSON.stringify(itens));
-            atualizarLista();
+
+            if (indiceEditando !== null) {
+                itens[indiceEditando] = item; // Atualiza item existente
+                indiceEditando = null;
+            } else {
+                itens.push(item); // Adiciona novo
+            }
+
+localStorage.setItem(`itens_${usuarioAtual}`, JSON.stringify(itens));
+atualizarLista();
+
             
             document.getElementById("nome").value = "";
             document.getElementById("descricao").value = "";
@@ -122,9 +137,15 @@ document.addEventListener("DOMContentLoaded", () => {
         listaItens.innerHTML = "";
         itens.forEach((item, index) => {
             const li = document.createElement("li");
-            li.innerHTML = `${item.nome} - ${item.descricao} <button onclick="removerItem(${index})">Remover</button>`;
-            listaItens.appendChild(li);
+            li.innerHTML = `
+            ${item.nome} - ${item.descricao}
+            <button onclick="editarItem(${index})">Editar</button>
+            <button onclick="removerItem(${index})">Remover</button>
+        `;
+                    listaItens.appendChild(li);
         });
+        atualizarContador(); // <- Atualiza contador após renderizar lista
+
     }
 
     window.removerItem = (index) => {
@@ -139,4 +160,13 @@ document.addEventListener("DOMContentLoaded", () => {
             window.location.href = "inicio.html"; // Agora redireciona para a tela de início.
         });
     }
+
+    window.editarItem = (index) => {
+        const item = itens[index];
+        document.getElementById("nome").value = item.nome;
+        document.getElementById("descricao").value = item.descricao;
+        indiceEditando = index;
+    };
+    
+
 });
